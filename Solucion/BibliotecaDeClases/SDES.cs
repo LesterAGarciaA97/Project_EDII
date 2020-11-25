@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace Utilidades
+namespace BibliotecaDeClases
 {
     public class SDES
     {

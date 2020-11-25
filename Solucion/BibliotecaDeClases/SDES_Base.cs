@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Utilidades
+namespace BibliotecaDeClases
 {
     internal class SDES_Base
     {
