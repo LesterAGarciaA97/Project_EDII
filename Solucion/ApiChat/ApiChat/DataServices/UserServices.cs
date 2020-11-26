@@ -63,41 +63,53 @@ namespace ApiChat.DataServices
         }
 
         public string UpdateMessageEmisor(string id, Msg objMensaje) {
-            var EmisorFilter = Builders<User>.Filter.Eq("Id", id);
-            var Update = Builders<User>.Update.Push("Mensaje", objMensaje);
+            var emisorFiltrer = Builders<User>.Filter.Eq("Id", id);
+            var update = Builders<User>.Update.Push("Mensajes", objMensaje);
 
-            _Users.UpdateOne(EmisorFilter, Update);
-            var ReceptorFilter = Builders<User>.Filter.Eq("Id", objMensaje.Receptor);
-            if (_Users.Find(ReceptorFilter).ToList().Count != 0)
+            _Users.UpdateOne(emisorFiltrer, update);
+
+            var receptorFiltrer = Builders<User>.Filter.Eq("Id", objMensaje.Receptor);
+
+            if (_Users.Find(receptorFiltrer).ToList().Count != 0) //Si es distinto de cero es porque si encontró al usuario en la collecion
             {
-                var _Receptor = _Users.Find(ReceptorFilter).ToList()[0];
-                var InfoReceptor = _Receptor.Username + "." + _Receptor.Id;
-                var ConversacionesFilter = Builders<User>.Filter.Eq("Id", objMensaje.Emisor) & Builders<User>.Filter.Eq("Conversaciones", InfoReceptor);
-                if (_Users.Find(ConversacionesFilter).ToList().Count == 0)
+                var _receptor = _Users.Find(receptorFiltrer).ToList()[0];
+                var infoReceptor = _receptor.Username + "." + _receptor.Id; //username.12lkji2912ojad21G
+
+                var conversacionesFiltrer = Builders<User>.Filter.Eq("Id", objMensaje.Emisor) & Builders<User>.Filter.Eq("Conversaciones", infoReceptor);
+
+                if (_Users.Find(conversacionesFiltrer).ToList().Count == 0)
                 {
-                    var UpdateConversacion = Builders<User>.Update.Push("Conversaciones", InfoReceptor);
-                    _Users.UpdateOne(EmisorFilter, UpdateConversacion);
+
+                    var updateConversacion = Builders<User>.Update.Push("Conversaciones", infoReceptor);
+
+                    _Users.UpdateOne(emisorFiltrer, updateConversacion);
                 }
             }
-            var User1 = _Users.Find(EmisorFilter).ToList();
-            return User1[0].Username + "." + User1[0].Id;
+
+            var us = _Users.Find(emisorFiltrer).ToList();
+
+            return us[0].Username + "." + us[0].Id;
         }
-        public bool UpdateMessageReceptor(string IdReceptor, string UsernameComEmisor, Msg objMensaje) {
-            var UserFilter = Builders<User>.Filter.Eq("Id", IdReceptor);
-            if (_Users.Find(UserFilter).ToList().Count == 1)
+        public bool UpdateMessageReceptor(string idReceptor, string usernameCompuestoEmisor, Msg objMensaje) {
+            var userFiltrer = Builders<User>.Filter.Eq("Id", idReceptor);
+
+            if (_Users.Find(userFiltrer).ToList().Count == 1) //Si ya se elimino retornará false
             {
-                var ConversacionesFilter = Builders<User>.Filter.Eq("Id", IdReceptor) & Builders<User>.Filter.Eq("Conversaciones", UsernameComEmisor);
-                if (_Users.Find(ConversacionesFilter).ToList().Count == 0)
+                var conversacionesFiltrer = Builders<User>.Filter.Eq("Id", idReceptor) & Builders<User>.Filter.Eq("Conversaciones", usernameCompuestoEmisor);
+
+                if (_Users.Find(conversacionesFiltrer).ToList().Count == 0)
                 {
-                    var UpdateConversacion = Builders<User>.Update.Push("Conversaciones", UsernameComEmisor);
-                    _Users.UpdateOne(UserFilter, UpdateConversacion);
+                    var updateConversacion = Builders<User>.Update.Push("Conversaciones", usernameCompuestoEmisor);
+
+                    _Users.UpdateOne(userFiltrer, updateConversacion);
                 }
-                var UpdateM = Builders<User>.Update.Push("Mensajes", objMensaje);
-                _Users.UpdateOne(UserFilter, UpdateM);
+
+                var update = Builders<User>.Update.Push("Mensajes", objMensaje);
+                _Users.UpdateOne(userFiltrer, update);
 
                 return true;
             }
-            
+
             return false;
         }
 

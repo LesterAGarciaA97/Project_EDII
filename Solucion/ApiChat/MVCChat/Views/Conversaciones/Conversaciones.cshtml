@@ -1,0 +1,38 @@
+﻿@model List<string>
+
+@{ ViewBag.Title = "Conversaciones";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+<br />
+<br />
+<br />
+<h2>Conversaciones</h2>
+@using (Html.BeginForm("CerrarSesion", "Perfil"))
+{
+<button type="submit" class="btn btn-danger btn-sm pull-right" name="CerrarSesion" value="CerrarSesion">X Cerrar sesión</button>}
+<table class="table">
+    <tr class="info">
+        <th>
+            Conversaciones Activas
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @item
+    </td>
+    <td>
+        @Html.ActionLink("Hablar", "UserNameToId", new { usernameReceptor = item })
+    </td>
+</tr>}
+
+</table>
+
+<p class="pull-right">
+    @Html.ActionLink("+ Nueva Conversación", "CrearConversacion")
+</p>
+<p>
+    @Html.ActionLink("<- Regresar", "HomePerfil", "Perfil")
+</p>
