@@ -31,7 +31,8 @@ namespace ApiChat
         {
             //services.AddControllers();
             services.AddCors();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddRazorPages();
 
             //Obtención de una Key secreta para la encripción utilizando JWT como método de autenticación web
             var appSettingsSection = Configuration.GetSection("AppConfiguration");
@@ -68,7 +69,7 @@ namespace ApiChat
                 app.UseDeveloperExceptionPage();
             }
 
-            /*app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -77,7 +78,7 @@ namespace ApiChat
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });*/
+            });
 
             app.UseCors(x => x
             .AllowAnyOrigin()
@@ -86,7 +87,7 @@ namespace ApiChat
             );
 
             app.UseAuthentication();
-            app.UseMvc();
+            //app.UseMvc();
         }
     }
 }

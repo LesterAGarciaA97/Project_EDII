@@ -1,0 +1,78 @@
+﻿@model MVCChat.Models.User
+
+@{
+    ViewBag.Title = "HomePerfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<h2>Mi Perfil</h2>
+
+<br />
+@using (Html.BeginForm("MenuResult", "Perfil"))
+{
+
+    <div class="panel panel-heading">
+        <div class="panel-heading">
+            <h3 class="panel-title">@Html.DisplayFor(model => model.Username)</h3>
+            <button type="submit" class="btn btn-danger btn-sm pull-right" name="CerrarSesion" value="CerrarSesion">X Cerrar sesión</button>
+        </div>
+        <div class="panel-body">
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre):
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Apellido):
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Apellido)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Username):
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Username)
+                    </dd>
+                    
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Telefono):
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Telefono)
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="panel panel-heading">
+        <div class="panel-heading">
+            <h3 class="panel-title">Conversaciones y Opciones...</h3>
+        </div>
+        <div class="panel-body">
+            <button type="submit" class="btn btn-success" name="CrearConversacion" value="CrearConversacion">+ Nueva Conversacion</button>
+            <button type="submit" class="btn btn-primary" name="Conversaciones" value="Conversaciones">Mis Conversaciones</button>
+            <button type="submit" class="btn btn-info" name="Archivos" value="Archivos">Mis Archivos</button>
+            <button type="submit" class="btn btn-warning" name="EditarPerfil" value="EditarPerfil">Editar Mi Perfil</button>
+            <button type="submit" class="btn btn-danger" name="EliminarPerfil" value="EliminarPerfil">Eliminar Mi Perfil</button>
+        </div>
+    </div>
+}
+
+
