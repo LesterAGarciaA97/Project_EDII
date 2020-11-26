@@ -31,7 +31,7 @@ namespace ApiChat
         {
             //services.AddControllers();
             services.AddCors();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddRazorPages();
 
             //Obtención de una Key secreta para la encripción utilizando JWT como método de autenticación web
@@ -41,6 +41,7 @@ namespace ApiChat
             //Aquí se utiliza el método de autenticación para las sesiones
             var AppConfiguration = appSettingsSection.Get<AppConfiguration>();
             var key = Encoding.ASCII.GetBytes(AppConfiguration.Secret);
+
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -72,6 +73,7 @@ namespace ApiChat
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
@@ -85,9 +87,10 @@ namespace ApiChat
             .AllowAnyMethod()
             .AllowAnyHeader()
             );
+            
 
-            app.UseAuthentication();
-            //app.UseMvc();
+
+            
         }
     }
 }
