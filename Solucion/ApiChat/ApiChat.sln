@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiChat", "ApiChat\ApiChat.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCChat", "MVCChat\MVCChat.csproj", "{7EB1C3C1-6CE4-472A-95AE-52D8A2E83AF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaDeClases", "..\BibliotecaDeClases\BibliotecaDeClases.csproj", "{939132C7-E4CB-4090-9666-5BC4556BB7A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaDeClases", "..\BibliotecaDeClases\BibliotecaDeClases.csproj", "{939132C7-E4CB-4090-9666-5BC4556BB7A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

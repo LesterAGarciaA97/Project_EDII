@@ -13,13 +13,13 @@ namespace BibliotecaDeClases.LZW
         #region Compresion
         public static void Compresion(IFormFile Archivo, string nombre)
         {
-            if (!Directory.Exists(Path.Combine(rutaDirectorioBase, "Compressions")))
+            if (!Directory.Exists(Path.Combine(rutaDirectorioBase, "MisArchivos")))
             {
-                Directory.CreateDirectory(Path.Combine(rutaDirectorioBase, "Compressions"));
+                Directory.CreateDirectory(Path.Combine(rutaDirectorioBase, "MisArchivos"));
             }
             using (var reader = new BinaryReader(Archivo.OpenReadStream()))
             {
-                using (var sw = new FileStream(Path.Combine(rutaDirectorioBase, "Compressions", $"{nombre}.lzw"), FileMode.OpenOrCreate))
+                using (var sw = new FileStream(Path.Combine(rutaDirectorioBase, "MisArchivos", $"{nombre}.lzw"), FileMode.OpenOrCreate))
                 {
                     using (var writer = new BinaryWriter(sw))
                     {
@@ -111,13 +111,13 @@ namespace BibliotecaDeClases.LZW
         #region Decompresion
         public static string Decompresion(IFormFile Archivo, string nombre)
         {
-            if (!Directory.Exists(Path.Combine(rutaDirectorioBase, "Decompressions")))
+            if (!Directory.Exists(Path.Combine(rutaDirectorioBase, "MisArchivos")))
             {
-                Directory.CreateDirectory(Path.Combine(rutaDirectorioBase, "Decompressions"));
+                Directory.CreateDirectory(Path.Combine(rutaDirectorioBase, "MisArchivos"));
             }
             using (var reader = new BinaryReader(Archivo.OpenReadStream()))
             {
-                using (var sw = new FileStream(Path.Combine(rutaDirectorioBase, "Decompressions", nombre), FileMode.OpenOrCreate))
+                using (var sw = new FileStream(Path.Combine(rutaDirectorioBase, "MisArchivos", nombre), FileMode.OpenOrCreate))
                 {
                     using (var writer = new BinaryWriter(sw))
                     {
