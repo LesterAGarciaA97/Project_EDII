@@ -9,12 +9,10 @@
 @using (Html.BeginForm("CerrarSesion", "Perfil"))
 {
 <button type="submit" class="btn btn-danger btn-sm pull-right" name="CerrarSesion" value="CerrarSesion">X Cerrar sesión</button>}
-<table class="table">
+<table class="table" style="background-color:coral">
     <tr class="info">
-        <th>
-            Conversaciones Activas
-        </th>
-        <th></th>
+        <th style="background-color:steelblue">Conversaciones Activas</th>
+        <th style="background-color:steelblue"></th>
     </tr>
 
     @foreach (var item in Model)
