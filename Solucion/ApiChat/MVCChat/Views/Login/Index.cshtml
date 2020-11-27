@@ -16,11 +16,11 @@
                     <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h2 class="panel-title">Login</h2>
+                            <div class="panel panel-default" >
+                                <div class="panel-heading" style="background-color:steelblue">
+                                    <h2 class="panel-title"><strong>Login</strong></h2>
                                 </div>
-                                <div class="panel-body">
+                                <div class="panel-body"  style="background-color:coral">
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
@@ -39,7 +39,7 @@
 
                                     <div class="form-group">
                                         <div class="pull-right col-lg-6">
-                                            <input type="submit" value="Ingresar" class="btn btn-warning" />
+                                            <input type="submit" value="Ingresar" class="btn btn-warning" style="background-color:black" />
                                         </div>
                                     </div>
                                     @Html.ActionLink("Registrarse", "Crear", "CrearUsuario")

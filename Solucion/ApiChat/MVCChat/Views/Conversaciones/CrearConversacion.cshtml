@@ -12,18 +12,18 @@
 {
 <button type="submit" class="btn btn-danger btn-sm pull-right" name="CerrarSesion" value="CerrarSesion">x Cerrar sesión</button>}
 <br />
-<table class="table">
+<table class="table"  class="table" style="background-color:coral">
     <tr class="info">
-        <th>
+        <th  style="background-color:steelblue">
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
-        <th>
+        <th  style="background-color:steelblue">
             @Html.DisplayNameFor(model => model.Apellido)
         </th>
-        <th>
+        <th style="background-color:steelblue">
             @Html.DisplayNameFor(model => model.Username)
         </th>
-        <th></th>
+        <th style="background-color:steelblue"></th>
     </tr>
 
     @foreach (var item in Model)

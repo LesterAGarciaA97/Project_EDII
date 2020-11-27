@@ -8,15 +8,15 @@
 <br />
 <br />
 <br />
-<h2>Mi Perfil</h2>
+<h1>Mi Perfil RocketChat</h1>
 
 <br />
 @using (Html.BeginForm("MenuResult", "Perfil"))
 {
 
-    <div class="panel panel-heading">
+    <div class="panel panel-heading"  style="background-color:coral" >
         <div class="panel-heading">
-            <h3 class="panel-title">@Html.DisplayFor(model => model.Username)</h3>
+            <h3 class="panel-title"><strong><t>BIENVENIDO @Html.DisplayFor(model => model.Username)</t></strong></h3>
             <button type="submit" class="btn btn-danger btn-sm pull-right" name="CerrarSesion" value="CerrarSesion">X Cerrar sesión</button>
         </div>
         <div class="panel-body">
@@ -61,9 +61,9 @@
 
     <br/>
 
-    <div class="panel panel-heading">
+    <div class="panel panel-heading"  style="background-color:coral">
         <div class="panel-heading">
-            <h3 class="panel-title">Conversaciones y Opciones...</h3>
+            <h3 class="panel-title"> <strong> Conversaciones y Opciones...</strong></h3>
         </div>
         <div class="panel-body">
             <button type="submit" class="btn btn-success" name="CrearConversacion" value="CrearConversacion">+ Nueva Conversacion</button>
