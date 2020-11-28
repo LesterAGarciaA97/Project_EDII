@@ -10,20 +10,20 @@
 
 <table class="table">
     <tr>
-        <th>
+        <th style="background-color:coral">
             Nombre del documento
         </th>
-        <th></th>
+        <th style="background-color:coral"></thstyle="background-color:coral">
     </tr>
 
     @foreach (var item in Model)
     {
 <tr>
-    <td>
+    <td style="background-color:steelblue">
         @Html.DisplayFor(modelItem => item.DocNombre)
     </td>
 
-    <td>
+    <td style="background-color:palevioletred">
         @Html.ActionLink("Descargar", "Obtener", new { nombre = item.DocNombre })
     </td>
 </tr>}

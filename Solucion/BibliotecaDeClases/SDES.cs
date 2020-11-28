@@ -223,7 +223,7 @@ namespace BibliotecaDeClases
         /// <param name="cadenaCifrar">Cadena que se desea operar con SDES</param>
         /// <param name="clave">Clave para cifrar, descifrar</param>
         public SDES(string cadenaCifrar, int clave)
-        {
+        { 
             Clave = clave;
             CadenaCifrar = cadenaCifrar;
             UtilidadeSDES = new SDES_Base();

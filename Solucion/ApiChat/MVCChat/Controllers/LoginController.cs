@@ -38,7 +38,9 @@ namespace MVCChat.Controllers
                 Data.Instancia.RocketChat.Cliente.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Jwt.Token);
                 return RedirectToAction("HomePerfil", "Perfil");
             }
+
             return RedirectToAction("Index");
+           
         }
     }
 }

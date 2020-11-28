@@ -198,6 +198,7 @@ namespace ApiChat.Controllers
             if (jwt == null)
             {
                 return BadRequest(new { message = "USUARIO O CONTRASENA INCORRECTOS" });
+                
             }
 
             return Accepted(jwt);

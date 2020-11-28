@@ -73,7 +73,7 @@ namespace ApiChat.DataServices
             if (_Users.Find(receptorFiltrer).ToList().Count != 0) //Si es distinto de cero es porque si encontró al usuario en la collecion
             {
                 var _receptor = _Users.Find(receptorFiltrer).ToList()[0];
-                var infoReceptor = _receptor.Username + "." + _receptor.Id; //username.12lkji2912ojad21G
+                var infoReceptor = _receptor.Username + "." + _receptor.Id; 
 
                 var conversacionesFiltrer = Builders<User>.Filter.Eq("Id", objMensaje.Emisor) & Builders<User>.Filter.Eq("Conversaciones", infoReceptor);
 
